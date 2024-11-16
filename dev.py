@@ -1,13 +1,18 @@
-from poo_app.restaurante import Restaurante
+#chamando as classes dos demais scrpts
+from modelo_app.restaurante import Restaurante
+from modelo_app.cardapio.bebida import Bebida
+from modelo_app.cardapio.prato import Prato
 
-restaurante_espeto = Restaurante('espeto na brasa', 'churrasco')
-restaurante_japones = Restaurante('Japa food', 'Sushi')
+restaurante_espeto = Restaurante('engenheiros do cafe', 'Cafeteria')
 
-# restaurante_espeto.receber_avaliacao('ju','10')
-# restaurante_espeto.receber_avaliacao('caio','7')
+bebida_suco = Bebida('Suco de laranja', 5.0, 'grande')
+prato_paozinho = Prato('paozinho', 2.0, 'o melhor pao da cidade')
 
+restaurante_espeto.adicionar_cardapio(bebida_suco)
+restaurante_espeto.adicionar_cardapio(prato_paozinho)
 def main():
-    Restaurante.listar_restaurantes()
+        restaurante_espeto.exibir_cardapio
+
 
 if __name__ == '__main__':
-    main()
+        main()

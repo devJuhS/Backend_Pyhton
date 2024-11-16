@@ -1,6 +1,8 @@
-   
-from poo_app.avaliacao import Avaliacao
+#importando o script de avaliação
+from modelo_app.avaliacao import Avaliacao
+from modelo_app.cardapio.item_cardapio import ItemCardapio
 
+#criando uma classe para restaurante
 class Restaurante:
     restaurantes = []
 
@@ -9,6 +11,7 @@ class Restaurante:
         self._categoria = categoria.upper()
         self._ativo = False
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
 
     def __str__(self):
@@ -42,7 +45,35 @@ class Restaurante:
         soma_das_notas = sum(avaliacao._nota for avaliacao in self._avaliacao)
         quantidade_de_notas = len(self._avaliacao)
         media = round(soma_das_notas / quantidade_de_notas, 1)
-        return media  # Certifique-se de que o return está indentado corretamente
+
+        #Certifique-se de que o return está indentado corretamente
+        return media  
+    
+    def adicionar_cardapio(self, item):
+        #isinstance() para instanciar determinados itens
+        if isinstance(item,ItemCardapio):
+            self._cardapio.append(item)
+
+    # Criando método para exibir cardápio
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardápio do restaurante {self._nome}\n')
+        for i, item in enumerate(self._cardapio, start=1):
+            if hasattr(item, '_descricao'):
+                # Caso seja um prato
+                mensagem_prato = f'{i}. Nome: {item._nome} | Preço: R${item._preco:.2f} | Descrição: {item._descricao}'
+                print(mensagem_prato)
+            elif hasattr(item, '_tamanho'):
+                # Caso seja uma bebida
+                mensagem_bebida = f'{i}. Nome: {item._nome} | Preço: R${item._preco:.2f} | Tamanho: {item._tamanho}'
+                print(mensagem_bebida)
+            # else:
+            #     # Caso o item não tenha os atributos esperados
+            #     print(f'{i}. Nome: {item._nome} | Preço: R${item._preco:.2f}')
+
+
+            
+
 
 
 

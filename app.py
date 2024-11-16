@@ -5,22 +5,25 @@ restaurantes = [
                 {'nome':'rei do churrasco', 'categoria': 'churrasco', 'ativo': True},
                 {'nome': 'domes', 'categoria':'hamburguer', 'ativo':False}] #lista #dicionario é relacionado a chave e valor 
 
-def main(): #funçao principal
-    os.system('cls')#para limpar  a tela apos fechear o programa
+#funçao principal
+def main(): 
+    #para limpar  a tela apos fechear o programa
+    os.system('cls')
     nome_do_app()
     exibir_opcoes()
     escolher_opcoes()
 
  
-
-def nome_do_app(): #funçao principal exibir o nome do app
+#funçao principal exibir o nome do app
+def nome_do_app(): 
     print("""
 ██████████████████████████████████████████████████████████████████████████
 █─▄▄▄▄██▀▄─██▄─▄─▀█─▄▄─█▄─▄▄▀███▄─▄▄─█▄─▀─▄█▄─▄▄─█▄─▄▄▀█▄─▄▄─█─▄▄▄▄█─▄▄▄▄█
 █▄▄▄▄─██─▀─███─▄─▀█─██─██─▄─▄████─▄█▀██▀─▀███─▄▄▄██─▄─▄██─▄█▀█▄▄▄▄─█▄▄▄▄─█
 ▀▄▄▄▄▄▀▄▄▀▄▄▀▄▄▄▄▀▀▄▄▄▄▀▄▄▀▄▄▀▀▀▄▄▄▄▄▀▄▄█▄▄▀▄▄▄▀▀▀▄▄▀▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀▄▄▄▄▄▀""")
-    
-def exibir_opcoes(): #funcao principal exibir as opçoes
+
+#funcao principal exibir as opçoes    
+def exibir_opcoes(): 
     print('1.Cadastrar restaurante')
     print('2.Listar restaurantes')
     print('3.Alternar restaurante')
@@ -81,9 +84,10 @@ def alternar_estado_restaurante():
 
     voltar_ao_menu_principal()
 
-
-def escolher_opcoes():#funçao pra escolher opções
-        try: #tentar
+#funçao pra escolher opções
+def escolher_opcoes():
+         #tentar
+        try:
             opcao_escolha = int(input('escolha uma opção: '))
         
             if (opcao_escolha == 1):
@@ -96,7 +100,8 @@ def escolher_opcoes():#funçao pra escolher opções
                 finalizar_app()
             else:
                 opcao_invalida()
-        except:#caso nao encontre apresente
+        #caso nao encontre apresente        
+        except:
             opcao_invalida()
 
 def voltar_ao_menu_principal():
@@ -107,7 +112,8 @@ def opcao_invalida():
     print('Opção invalida \n')
     voltar_ao_menu_principal()
 
-def finalizar_app(): #funçao pra limpar a tela
+#funçao pra limpar a tela
+def finalizar_app(): 
     exibir_subtitulo('finalizar app')
 
 
